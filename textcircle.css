@@ -1,0 +1,11 @@
+/* CSS declarations go here */
+
+.top-margin{
+	margin-top:100px;
+}
+
+#viewer_iframe{
+	border: 1px solid #808080;
+	resize: both;
+	width: 100%;
+}
