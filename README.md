@@ -1,7 +1,7 @@
-Meteor.js text editor
+Meteor.js text editor<br>
 
-Packages added:
-twbs:bootstrap
-accounts-password
-ian:accounts-ui-bootstrap-3
-mizzao:sharejs-codemirror
+Packages added:<br>
+twbs:bootstrap<br>
+accounts-password<br>
+ian:accounts-ui-bootstrap-3<br>
+mizzao:sharejs-codemirror<br>
