@@ -1,19 +1,12 @@
-// this collection stores all the documents 
 this.Documents = new Mongo.Collection("documents");
-// this collection stores sets of users that are editing documents
 EditingUsers = new Mongo.Collection("editingUsers");
 
 if (Meteor.isClient) {
   // return the id of the first document you can find
   Template.editor.helpers({
     docid:function(){
-      var doc = Documents.findOne();
-      if (doc){
-        return doc._id;
-      }
-      else {
-        return undefined;
-      }
+      setupCurrentDocument();
+      return Session.get("docid");
     }, 
     // configure the CodeMirror editor
     config:function(){
@@ -108,6 +101,16 @@ Meteor.methods({
   }
 })
 
+
+function setupCurrentDocument(){
+  var doc;
+  if (!Session.get("docid")){
+    doc = Documents.findOne();
+    if(doc){
+      Session.set("docid", doc._id);
+    }
+  }
+}
 // this renames object keys by removing hyphens to make the compatible 
 // with spacebars. 
 function fixObjectKeys(obj){
