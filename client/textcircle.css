@@ -9,3 +9,9 @@
 	resize: both;
 	width: 100%;
 }
+
+.light-border{
+	border: 2px solid #BA55D3;
+	width: 100%;
+	text-align: center;
+}
