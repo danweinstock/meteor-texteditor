@@ -2,6 +2,23 @@
 Meteor.subscribe("documents");
 Meteor.subscribe("editingUsers");
 
+Router.configure({
+  layoutTemplate: 'ApplicationLayout'
+});
+
+Router.route('/', function(){
+  console.log('you hit /');
+  this.render("navbar", {to:"header"});
+  this.render("docList", {to:"main"});
+})
+
+Router.route('/documents/:_id', function(){
+  console.log('you hit /documents' +this.params._id);
+  Session.set("docid", this.params._id);
+  this.render("navbar", {to:"header"});
+  this.render("docItem", {to:"main"});
+})
+
 Template.editor.helpers({
   // return the id of the currently loaded doc
   docid:function(){
@@ -77,6 +94,13 @@ Template.editableText.helpers({
       return false;
     }
   }    
+})
+
+Template.docList.helpers({
+  // return a list of all visible documents
+  documents:function(){
+    return Documents.find();
+  }
 })
 
 /////////

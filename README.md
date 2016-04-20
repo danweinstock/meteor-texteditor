@@ -6,6 +6,7 @@ accounts-password<br>
 ian:accounts-ui-bootstrap-3<br>
 mizzao:sharejs-codemirror<br>
 babrahams:editable-text<br>
+iron:router<br>
 
 <h3>Packages removed:</h3><br>
 autopublish
